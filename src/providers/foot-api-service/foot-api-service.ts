@@ -11,8 +11,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class FootApiServiceProvider {
 
+  private baseUrl: string = 'http://api.football-data.org/v1/';
+
   constructor(public http: Http) {
     console.log('Hello FootApiServiceProvider Provider');
+  }
+
+  public getCompetions(){
+
   }
 
 }
