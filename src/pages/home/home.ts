@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { FootApiServiceProvider } from '../../providers/foot-api-service/foot-api-service';
+import { FootApiCmpGlobal } from '../../models/footapi-cmp-global.model';
 
 @Component({
   selector: 'page-home',
@@ -7,7 +9,14 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  foot: FootApiCmpGlobal;
+
+  constructor(public navCtrl: NavController, private footApiServiceProvider: FootApiServiceProvider) {
+    this.footApiServiceProvider.getCompetions()
+      .then(cmpsFetched => {
+        this.foot = cmpsFetched;
+        console.log(this.foot)
+      });
 
   }
 
