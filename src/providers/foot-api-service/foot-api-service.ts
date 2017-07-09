@@ -27,9 +27,6 @@ export class FootApiServiceProvider {
 
     const url = `${this.baseUrl}competitions`;
 
-    /*let headers = new Headers();
-    headers.append('X-Auth-Token', '60a0e2b63a304790b8354014846ebf7d');*/
-
     return this.http.get(url, {headers: this.headers})
       .toPromise()
       .then(response => response.json() as FootApiCmpGlobal)
