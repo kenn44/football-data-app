@@ -9,7 +9,7 @@ import { FootApiCmpGlobal } from '../../models/footapi-cmp-global.model';
 })
 export class HomePage {
 
-  foot: FootApiCmpGlobal;
+  foot: FootApiCmpGlobal = new FootApiCmpGlobal();
 
   constructor(public navCtrl: NavController, private footApiServiceProvider: FootApiServiceProvider) {
     this.footApiServiceProvider.getCompetions()
