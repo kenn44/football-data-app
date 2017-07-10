@@ -11,13 +11,28 @@ export class HomePage {
 
   foot: FootApiCmpGlobal = new FootApiCmpGlobal();
 
-  constructor(public navCtrl: NavController, private footApiServiceProvider: FootApiServiceProvider) {
+  /*constructor(public navCtrl: NavController, private footApiServiceProvider: FootApiServiceProvider) {
     this.footApiServiceProvider.getCompetions()
       .then(cmpsFetched => {
         this.foot = cmpsFetched;
         console.log(this.foot)
       });
 
+  }*/
+
+  constructor(public navCtrl: NavController, private footApiServiceProvider: FootApiServiceProvider) {
+    this.getCompetions(null);
+  }
+
+  public getCompetions(refresher) {
+    this.footApiServiceProvider.getCompetions()
+      .then(cmpsFetched => {
+        this.foot = cmpsFetched;
+        console.log(this.foot);
+
+        (refresher) ? refresher.complete() : null;
+        console.log('Data retrieved from server !');
+      });
   }
 
 }
