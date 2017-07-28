@@ -29,6 +29,7 @@ export class HomePage {
       .then(cmpsFetched => {
         this.foot = cmpsFetched;
         console.log(this.foot);
+        console.log(this.foot[1].id);
 
         (refresher) ? refresher.complete() : null;
         console.log('Data retrieved from server !');
